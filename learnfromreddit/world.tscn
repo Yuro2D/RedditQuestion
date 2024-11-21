@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr8r17j588sp3"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_clkg7"]
+[ext_resource type="PackedScene" uid="uid://bekh0gxwii8jm" path="res://box.tscn" id="1_tnbpa"]
+[ext_resource type="PackedScene" uid="uid://c6mtl3libihwm" path="res://greenBox.tscn" id="2_yh3tk"]
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("bluegear1", "bluegear2", "bluegear3", "bluegear4", "gear1", "gear2", "gear3", "gear4")]
+script = ExtResource("1_clkg7")
+bluegear1 = NodePath("BlueBox2")
+bluegear2 = NodePath("BlueBox1")
+bluegear3 = NodePath("BlueBox3")
+bluegear4 = NodePath("BlueBox4")
+gear1 = NodePath("GreenBox4")
+gear2 = NodePath("GreenBox3")
+gear3 = NodePath("GreenBox2")
+gear4 = NodePath("GreenBox")
+
+[node name="BlueBox1" parent="." instance=ExtResource("1_tnbpa")]
+position = Vector2(318, 320)
+
+[node name="BlueBox2" parent="." instance=ExtResource("1_tnbpa")]
+position = Vector2(318, 352)
+
+[node name="BlueBox3" parent="." instance=ExtResource("1_tnbpa")]
+position = Vector2(350, 320)
+
+[node name="BlueBox4" parent="." instance=ExtResource("1_tnbpa")]
+position = Vector2(350, 352)
+
+[node name="BlueBox5" parent="." instance=ExtResource("1_tnbpa")]
+position = Vector2(334, 336)
+
+[node name="GreenBox" parent="." instance=ExtResource("2_yh3tk")]
+position = Vector2(384, 320)
+
+[node name="GreenBox2" parent="." instance=ExtResource("2_yh3tk")]
+position = Vector2(384, 288)
+
+[node name="GreenBox3" parent="." instance=ExtResource("2_yh3tk")]
+position = Vector2(352, 288)
+
+[node name="GreenBox4" parent="." instance=ExtResource("2_yh3tk")]
+position = Vector2(352, 320)
+
+[node name="GreenBox5" parent="." instance=ExtResource("2_yh3tk")]
+z_index = 1
+position = Vector2(368, 304)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 475.0
+offset_top = 337.0
+offset_right = 527.0
+offset_bottom = 368.0
+text = "TURN
+"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 474.0
+offset_top = 384.0
+offset_right = 526.0
+offset_bottom = 415.0
+text = "REVERSE TURN
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="GreenBox5"]
